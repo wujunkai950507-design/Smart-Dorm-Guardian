@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>小套房智慧守門員</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>小套房智慧守門員平台</h1>
+      <p class="subtitle">模擬小套房環境狀態與危險分數的智慧監控儀表板</p>
+    </header>
+
+    <main>
+      <!-- 狀態總覽 -->
+      <section class="card grid-3">
+        <div class="card-small">
+          <h2>環境狀態</h2>
+          <div class="kv">
+            <span>溫度：</span><strong id="tempValue">--</strong><span>°C</span>
+          </div>
+          <div class="kv">
+            <span>瓦斯指數：</span><strong id="gasValue">--</strong>
+          </div>
+          <div class="kv">
+            <span>煙霧：</span><strong id="smokeValue">--</strong>
+          </div>
+          <div class="kv">
+            <span>有人活動：</span><strong id="pirValue">--</strong>
+          </div>
+        </div>
+
+        <div class="card-small highlight">
+          <h2>危險分數</h2>
+          <div id="riskScore" class="risk-score">--</div>
+          <div id="riskLevel" class="risk-level">尚未計算</div>
+        </div>
+
+        <div class="card-small">
+          <h2>模擬控制</h2>
+          <p class="hint">點擊按鈕產生一筆模擬感測資料。</p>
+          <button id="simulateBtn">產生新資料</button>
+          <label class="auto-toggle">
+            <input type="checkbox" id="autoToggle" />
+            <span>自動更新（每 5 秒產生一筆）</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 走勢圖 -->
+      <section class="card">
+        <h2>危險分數走勢</h2>
+        <canvas id="riskChart" height="120"></canvas>
+      </section>
+
+      <!-- 事件紀錄 -->
+      <section class="card">
+        <h2>事件紀錄（警報 Log）</h2>
+        <ul id="eventList" class="event-list">
+          <li class="placeholder">目前尚無警報事件。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>作者：<span class="author">（吳浚愷）</span> ｜ 小套房智慧守門員平台 ｜</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
